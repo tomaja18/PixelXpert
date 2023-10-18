@@ -45,11 +45,11 @@ jobs:
       - name: Upload APK file
         uses: actions/upload-artifact@v2
         with:
-          name: AOSPMods_Xposed.apk
+          name: PixelXpert_Xposed.apk
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
         
       - name: Upload Xposed Artifact to Actions
         uses: actions/upload-artifact@v2
         with: 
-          name: AOSPMods_Xposed.zip
+          name: PixelXpert_Xposed.zip
           path: output

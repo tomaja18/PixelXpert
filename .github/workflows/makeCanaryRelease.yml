@@ -55,13 +55,13 @@ jobs:
     - name: Upload Xposed Artifact to Actions
       uses: actions/upload-artifact@v2
       with: 
-        name: AOSPMods_Xposed.zip
+        name: PixelXpert_Xposed.zip
         path: output
 
     - name: Upload Full Artifact to Actions
       uses: actions/upload-artifact@v2
       with:
-        name: AOSPMods_Full.zip
+        name: PixelXpert_Full.zip
         path: output
 
     - name: Previous Release Deletion
@@ -91,7 +91,7 @@ jobs:
         force-add: 'true'
         files: MagiskModBase/module.prop app/build.gradle latestVersion.json CanaryChangelog.md latestCanary.json MagiskModuleUpdate_Xposed.json MagiskModuleUpdate_Full.json
         name: GitHub
-        email: aospmods@siava.sh
+        email: PixelXpert@siava.sh
 
     - name: Telegram Channel Post
       uses: appleboy/telegram-action@master
@@ -103,4 +103,4 @@ jobs:
 
     - name: Telegram File Attachment
       run: |
-        curl -v "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.AOSPMODS_CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FXposed%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FFull%22%7D%5D" -F Xposed="@output/AOSPMods_Xposed.zip" -F Full="@output/AOSPMods_Full.zip"
+        curl -v "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.AOSPMODS_CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FXposed%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FFull%22%7D%5D" -F Xposed="@output/PixelXpert_Xposed.zip" -F Full="@output/PixelXpert_Full.zip"

@@ -15,11 +15,11 @@ import sh.siava.AOSPMods.modpacks.Constants;
 import sh.siava.AOSPMods.modpacks.XposedModPack;
 
 @SuppressWarnings("RedundantThrows")
-public class AOSPModsIconUpdater extends XposedModPack {
+public class PixelXpertIconUpdater extends XposedModPack {
 	private static final String listenPackage = Constants.LAUNCHER_PACKAGE;
 	private Object LauncherModel;
 
-	public AOSPModsIconUpdater(Context context) {
+	public PixelXpertIconUpdater(Context context) {
 		super(context);
 	}
 

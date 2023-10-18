@@ -18,7 +18,7 @@ This is a mixed Xposed+Magisk module, which is made to allow customizations that
 <hr>
 
 ### **Features:**
-Currently, AOSP Mods offers customizations on different aspects of system framework and SystemUI, including:
+Currently, Pixel Xpert offers customizations on different aspects of system framework and SystemUI, including:
 - Status bar
 - Quick Settings panel
 - Lock screen

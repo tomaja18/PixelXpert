@@ -15,7 +15,7 @@ import sh.siava.AOSPMods.modpacks.android.ScreenRotation;
 import sh.siava.AOSPMods.modpacks.android.StatusbarSize;
 import sh.siava.AOSPMods.modpacks.android.SystemScreenRecord;
 import sh.siava.AOSPMods.modpacks.dialer.RecordingMessage;
-import sh.siava.AOSPMods.modpacks.launcher.AOSPModsIconUpdater;
+import sh.siava.AOSPMods.modpacks.launcher.PixelXpertIconUpdater;
 import sh.siava.AOSPMods.modpacks.launcher.ClearAllButtonMod;
 import sh.siava.AOSPMods.modpacks.launcher.CustomNavGestures;
 import sh.siava.AOSPMods.modpacks.launcher.FeatureFlags;
@@ -125,7 +125,7 @@ public class ModPacks {
 				modPacks.add(TaskbarActivator.class);
 				modPacks.add(CustomNavGestures.class);
 				modPacks.add(ClearAllButtonMod.class);
-				modPacks.add(AOSPModsIconUpdater.class);
+				modPacks.add(PixelXpertIconUpdater.class);
 				modPacks.add(FeatureFlags.class);
 				break;
 			case Constants.TELECOM_SERVER_PACKAGE:

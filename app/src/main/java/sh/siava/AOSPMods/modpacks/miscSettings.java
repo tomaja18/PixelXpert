@@ -124,15 +124,15 @@ public class miscSettings extends XposedModPack {
 
 					if (WifiCellEnabled) {
 						providerModel = false;
-						currentTiles = addItemToCommaStringIfNotPresent(currentTiles, "cell_AOSPMods");
-						currentTiles = addItemToCommaStringIfNotPresent(currentTiles, "wifi_AOSPMods");
+						currentTiles = addItemToCommaStringIfNotPresent(currentTiles, "cell_PixelXpert");
+						currentTiles = addItemToCommaStringIfNotPresent(currentTiles, "wifi_PixelXpert");
 
 						currentTiles = removeItemFromCommaString(currentTiles, "internet");
 					} else {
 						providerModel = true;
 
-						currentTiles = removeItemFromCommaString(currentTiles, "cell_AOSPMods");
-						currentTiles = removeItemFromCommaString(currentTiles, "wifi_AOSPMods");
+						currentTiles = removeItemFromCommaString(currentTiles, "cell_PixelXpert");
+						currentTiles = removeItemFromCommaString(currentTiles, "wifi_PixelXpert");
 
 						currentTiles = addItemToCommaStringIfNotPresent(currentTiles, "internet");
 					}

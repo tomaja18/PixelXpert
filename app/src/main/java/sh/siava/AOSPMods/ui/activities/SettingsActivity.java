@@ -1,7 +1,6 @@
 package sh.siava.AOSPMods.ui.activities;
 
 import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
-
 import static sh.siava.AOSPMods.ui.fragments.UpdateFragment.UPDATES_CHANNEL_ID;
 
 import android.animation.Animator;
@@ -37,10 +36,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.topjohnwu.superuser.Shell;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -49,7 +53,6 @@ import java.util.regex.Pattern;
 
 import sh.siava.AOSPMods.BuildConfig;
 import sh.siava.AOSPMods.R;
-import sh.siava.AOSPMods.utils.UpdateScheduler;
 import sh.siava.AOSPMods.ui.preferences.preferencesearch.SearchConfiguration;
 import sh.siava.AOSPMods.ui.preferences.preferencesearch.SearchPreference;
 import sh.siava.AOSPMods.ui.preferences.preferencesearch.SearchPreferenceResult;
@@ -58,6 +61,7 @@ import sh.siava.AOSPMods.utils.AppUtils;
 import sh.siava.AOSPMods.utils.ControlledPreferenceFragmentCompat;
 import sh.siava.AOSPMods.utils.PrefManager;
 import sh.siava.AOSPMods.utils.PreferenceHelper;
+import sh.siava.AOSPMods.utils.UpdateScheduler;
 import sh.siava.rangesliderpreference.RangeSliderPreference;
 
 public class SettingsActivity extends AppCompatActivity implements PreferenceFragmentCompat.OnPreferenceStartFragmentCallback, SearchPreferenceResultListener {
@@ -98,6 +102,8 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 		DPContext = this.createDeviceProtectedStorageContext();
 		DPContext.moveSharedPreferencesFrom(this, BuildConfig.APPLICATION_ID + "_preferences");
 		super.onCreate(savedInstanceState);
+
+		tryMigratePrefs();
 
 		backButtonDisabled();
 		createNotificationChannel();
@@ -145,6 +151,23 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 		});
 
 		Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.color_surface_overlay));
+	}
+
+	private void tryMigratePrefs() {
+		@SuppressLint("SdCardPath")
+		String migrateFilePath = "/sdcard/Download/PixelXpert.migrate";
+		if(Shell.cmd(String.format("stat %s", migrateFilePath)).exec().getOut().size() > 0)
+		{
+			String importFilePath = String.format("%s/PixelXpert.migrate", getFilesDir().getPath());
+			Shell.cmd(String.format("mv %s %s", migrateFilePath, importFilePath)).exec();
+			Shell.cmd(String.format("chmod 777 %s", importFilePath)).exec();
+
+			try {
+				PrefManager.importPath(PreferenceManager.getDefaultSharedPreferences(DPContext), Files.newInputStream(Paths.get(importFilePath)));
+				//noinspection ResultOfMethodCallIgnored
+				new File(importFilePath).delete();
+			} catch (Throwable ignored) {}
+		}
 	}
 
 	@Override
@@ -257,7 +280,7 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 		Intent fileIntent = new Intent();
 		fileIntent.setAction(export ? Intent.ACTION_CREATE_DOCUMENT : Intent.ACTION_GET_CONTENT);
 		fileIntent.setType("*/*");
-		fileIntent.putExtra(Intent.EXTRA_TITLE, "AOSPMods_Config" + ".bin");
+		fileIntent.putExtra(Intent.EXTRA_TITLE, "PixelXpert_Config" + ".bin");
 		startActivityForResult(fileIntent, export ? REQUEST_EXPORT : REQUEST_IMPORT);
 	}
 

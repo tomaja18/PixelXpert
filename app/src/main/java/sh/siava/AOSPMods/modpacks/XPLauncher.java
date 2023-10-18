@@ -124,7 +124,7 @@ public class XPLauncher implements ServiceConnection {
 
 	private void onXPrefsReady(XC_LoadPackage.LoadPackageParam lpparam) {
 		if (isBootLooped(lpparam.packageName)) {
-			log(String.format("AOSPMods: Possible bootloop in %s. Will not load for now", lpparam.packageName));
+			log(String.format("PixelXpert: Possible bootloop in %s. Will not load for now", lpparam.packageName));
 			return;
 		}
 
@@ -208,9 +208,9 @@ public class XPLauncher implements ServiceConnection {
 			}
 		}
 
-		log("AOSPMods Version: " + BuildConfig.VERSION_NAME);
+		log("PixelXpert Version: " + BuildConfig.VERSION_NAME);
 		try {
-			log("AOSPMods Records: " + Xprefs.getAll().keySet().size());
+			log("PixelXpert Records: " + Xprefs.getAll().keySet().size());
 		} catch (Throwable ignored) {}
 
 		onXPrefsReady(lpparam);

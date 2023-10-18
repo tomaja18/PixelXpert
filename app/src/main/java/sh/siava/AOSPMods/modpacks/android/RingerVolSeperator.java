@@ -51,7 +51,7 @@ public class RingerVolSeperator extends XposedModPack {
 			hookAllMethods(DeviceConfigClass, "setProperty", new XC_MethodHook() {
 				@Override
 				protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-					if ("systemui_AOSPMods".equals(param.args[0])) {
+					if ("systemui_PixelXpert".equals(param.args[0])) {
 						param.args[0] = "systemui";
 						return;
 					}
@@ -68,7 +68,7 @@ public class RingerVolSeperator extends XposedModPack {
 	private void setSeparateRingerNotif(boolean enabled)
 	{
 		try {
-			callStaticMethod(DeviceConfigClass, "setProperty", "systemui_AOSPMods", VOLUME_SEPARATE_NOTIFICATION, String.valueOf(enabled), true);
+			callStaticMethod(DeviceConfigClass, "setProperty", "systemui_PixelXpert", VOLUME_SEPARATE_NOTIFICATION, String.valueOf(enabled), true);
 		} catch (Throwable ignored){}
 	}
 }

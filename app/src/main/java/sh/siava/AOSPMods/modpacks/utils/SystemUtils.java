@@ -279,7 +279,7 @@ public class SystemUtils {
 			mCameraManager.setTorchMode(flashID, enabled);
 		} catch (Throwable t) {
 			if (BuildConfig.DEBUG) {
-				log("AOSPMods Error in setting flashlight");
+				log("PixelXpert Error in setting flashlight");
 				log(t);
 			}
 		}
@@ -342,7 +342,7 @@ public class SystemUtils {
 			}
 		} catch (Throwable t) {
 			if (BuildConfig.DEBUG) {
-				log("AOSPMods Error in setting flashlight");
+				log("PixelXpert Error in setting flashlight");
 				log(t);
 			}
 		}
@@ -441,7 +441,7 @@ public class SystemUtils {
 				mWifiManager = mContext.getSystemService(WifiManager.class);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting wifi manager");
+					log("PixelXpert Error getting wifi manager");
 					log(t);
 				}
 			}
@@ -457,7 +457,7 @@ public class SystemUtils {
 				mConnectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting connection manager");
+					log("PixelXpert Error getting connection manager");
 					log(t);
 				}
 			}
@@ -473,7 +473,7 @@ public class SystemUtils {
 				mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting power manager");
+					log("PixelXpert Error getting power manager");
 					log(t);
 				}
 			}
@@ -488,7 +488,7 @@ public class SystemUtils {
 				mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting alarm manager");
+					log("PixelXpert Error getting alarm manager");
 					log(t);
 				}
 			}
@@ -503,7 +503,7 @@ public class SystemUtils {
 				mTelephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting telephony manager");
+					log("PixelXpert Error getting telephony manager");
 					log(t);
 				}
 			}
@@ -520,7 +520,7 @@ public class SystemUtils {
 				mHasVibrator = mVibrationManager.getDefaultVibrator().hasVibrator();
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting vibrator");
+					log("PixelXpert Error getting vibrator");
 					log(t);
 				}
 			}
@@ -537,7 +537,7 @@ public class SystemUtils {
 				mNetworkStatsManager = (NetworkStatsManager) mContext.getSystemService(Context.NETWORK_STATS_SERVICE);
 			} catch (Throwable t) {
 				if (BuildConfig.DEBUG) {
-					log("AOSPMods Error getting network stats");
+					log("PixelXpert Error getting network stats");
 					log(t);
 				}
 			}

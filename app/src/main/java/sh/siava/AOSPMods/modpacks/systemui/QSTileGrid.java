@@ -183,11 +183,11 @@ public class QSTileGrid extends XposedModPack {
 		hookAllMethods(QSFactoryImplClass, "createTile", new XC_MethodHook() {
 			@Override
 			protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-				if(param.args[0].equals("wifi_AOSPMods"))
+				if(param.args[0].equals("wifi_PixelXpert"))
 				{
 					param.args[0] = "wifi";
 				}
-				if(param.args[0].equals("cell_AOSPMods"))
+				if(param.args[0].equals("cell_PixelXpert"))
 				{
 					param.args[0] = "cell";
 				}

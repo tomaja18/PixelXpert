@@ -348,7 +348,7 @@ public class FlexStatusIconContainer extends LinearLayout {
 				setMeasuredDimension(totalWidth, MeasureSpec.getSize(heightMeasureSpec));
 			}
 		} catch (Throwable e) {
-			log("AOSPMODS Error - Flex Statusbar Container");
+			log("PixelXpert Error - Flex Statusbar Container");
 			log(e);
 			setDefaultResponse(widthMeasureSpec, heightMeasureSpec);
 		}
@@ -529,7 +529,7 @@ public class FlexStatusIconContainer extends LinearLayout {
 			mDotIcon = null;
 			System.gc();
 		} catch (Throwable t) {
-			log("AOSPMODS Error - Flex Statusbar Container");
+			log("PixelXpert Error - Flex Statusbar Container");
 			log(t);
 		}
 	}

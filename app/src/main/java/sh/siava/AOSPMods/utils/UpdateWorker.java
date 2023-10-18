@@ -95,7 +95,7 @@ public class UpdateWorker extends ListenableWorker {
 				showUpdateNotification();
 			}
 		} catch (Exception e) {
-			Log.e("AOSPMods", "Error while checking for updates", e);
+			Log.e("PixelXpert", "Error while checking for updates", e);
 		}
 	};
 }

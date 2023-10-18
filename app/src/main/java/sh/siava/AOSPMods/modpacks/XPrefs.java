@@ -13,7 +13,7 @@ import sh.siava.AOSPMods.modpacks.utils.Overlays;
 public class XPrefs {
 
 	public static SharedPreferences Xprefs;
-	public static String MagiskRoot = "/data/adb/modules/AOSPMods";
+	public static String MagiskRoot = "/data/adb/modules/PixelXpert";
 	private static String packageName;
 
 	private static final OnSharedPreferenceChangeListener listener = (sharedPreferences, key) -> loadEverything(packageName, key);

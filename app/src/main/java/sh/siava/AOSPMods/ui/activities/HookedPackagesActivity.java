@@ -55,7 +55,7 @@ public class HookedPackagesActivity extends AppCompatActivity {
 	IntentFilter intentFilterHookedPackages = new IntentFilter();
 	private final List<String> hookedPackageList = new ArrayList<>();
 	private List<String> monitorPackageList;
-	private final String SQLite3 = "/data/adb/modules/AOSPMods/sqlite3";
+	private final String SQLite3 = "/data/adb/modules/PixelXpert/sqlite3";
 	private final String LSPosedDB = "/data/adb/lspd/config/modules_config.db";
 	private int dotCount = 0;
 	private ServiceConnection mCoreRootServiceConnection;

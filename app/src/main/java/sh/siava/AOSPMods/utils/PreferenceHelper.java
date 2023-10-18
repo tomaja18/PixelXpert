@@ -533,7 +533,7 @@ public class PreferenceHelper {
 
 	public static int getVersionType() {
 		try {
-			return Integer.parseInt(Shell.cmd(String.format("cat %s/build.type", "/data/adb/modules/AOSPMods")).exec().getOut().get(0));
+			return Integer.parseInt(Shell.cmd(String.format("cat %s/build.type", "/data/adb/modules/PixelXpert")).exec().getOut().get(0));
 		} catch (Exception ignored) {
 			return XPOSED_ONLY;
 		}

@@ -292,8 +292,8 @@ public class UpdateFragment extends Fragment {
 		filters.addAction(DownloadManager.ACTION_NOTIFICATION_CLICKED);
 
 		downloadID = downloadManager.enqueue(new DownloadManager.Request(Uri.parse(zipURL))
-				.setTitle("AOSPMods Update Package")
-				.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, String.format("AOSPMods-%s.zip", versionNumber))
+				.setTitle("PixelXpert Update Package")
+				.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, String.format("PixelXpert-%s.zip", versionNumber))
 				.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE));
 
 		//noinspection ConstantConditions

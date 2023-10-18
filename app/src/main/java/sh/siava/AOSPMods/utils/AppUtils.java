@@ -1,6 +1,7 @@
 package sh.siava.AOSPMods.utils;
 
 import android.os.FileUtils;
+import android.util.Log;
 
 import com.topjohnwu.superuser.Shell;
 
@@ -16,7 +17,7 @@ public class AppUtils {
 				Shell.cmd("killall com.android.systemui").submit();
 				break;
 			case "system":
-				Shell.cmd("am start -a android.intent.action.REBOOT").submit();
+				Shell.cmd("am start -a android.intent.action.REBOOT").exec();
 				break;
 			case "zygote":
 				Shell.cmd("kill $(pidof zygote)").submit();
