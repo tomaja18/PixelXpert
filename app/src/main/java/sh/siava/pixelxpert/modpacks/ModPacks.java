@@ -60,89 +60,10 @@ public class ModPacks {
 		ArrayList<Class<? extends XposedModPack>> modPacks = new ArrayList<>();
 
 		//Should be loaded before others
-		modPacks.add(ThermalProvider.class);
-		modPacks.add(SettingsLibUtilsProvider.class);
-		modPacks.add(HookTester.class);
+		modPacks.add(HealthHook.class);
 
-		switch (packageName)
-		{
-			case Constants.SYSTEM_FRAMEWORK_PACKAGE:
-				modPacks.add(StatusbarSize.class);
-				modPacks.add(PackageManager.class);
-				modPacks.add(BrightnessRange.class);
-				modPacks.add(PhoneWindowManager.class);
-				modPacks.add(ScreenRotation.class);
-				modPacks.add(ScreenOffKeys.class);
-				modPacks.add(HotSpotController.class);
-				modPacks.add(RingerVolSeperator.class);
-				modPacks.add(SystemScreenRecord.class);
-				break;
-			case Constants.SYSTEM_UI_PACKAGE:
-				if(XPLauncher.isChildProcess && XPLauncher.processName.contains("screenshot"))
-				{
-					modPacks.add(ScreenshotManager.class);
-				}
-				else
-				{
-					if(Build.VERSION.SDK_INT == Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-					{
-						Helpers.setOverlay("QSLightThemeOverlay", false, true, true);
-						modPacks.add(ThemeManager_14.class);
-					}
-					else
-					{
-						modPacks.add(ThemeManager_13.class);
-					}
-
-					modPacks.add(BrightnessRange.class);
-					modPacks.add(NotificationExpander.class);
-					modPacks.add(QSTileGrid.class);
-					modPacks.add(BrightnessSlider.class);
-					modPacks.add(FeatureFlagsMods.class);
-					modPacks.add(ThreeButtonNavMods.class);
-					modPacks.add(ScreenGestures.class);
-					modPacks.add(miscSettings.class);
-					modPacks.add(AOSPSettingsLauncher.class);
-					modPacks.add(StatusbarGestures.class);
-					modPacks.add(KeyguardMods.class);
-					modPacks.add(UDFPSManager.class);
-					modPacks.add(EasyUnlock.class);
-					modPacks.add(MultiStatusbarRows.class);
-					modPacks.add(StatusbarMods.class);
-					modPacks.add(BatteryStyleManager.class);
-					modPacks.add(GestureNavbarManager.class);
-					modPacks.add(QSFooterTextManager.class);
-					modPacks.add(KeyGuardPinScrambler.class);
-					modPacks.add(FingerprintWhileDozing.class);
-					modPacks.add(StatusbarSize.class);
-					modPacks.add(FlashLightLevel.class);
-					modPacks.add(NotificationManager.class);
-					modPacks.add(VolumeTile.class);
-					modPacks.add(ScreenRecord.class);
-				}
-				break;
-			case Constants.LAUNCHER_PACKAGE:
-				modPacks.add(TaskbarActivator.class);
-				modPacks.add(CustomNavGestures.class);
-				modPacks.add(ClearAllButtonMod.class);
-				modPacks.add(PixelXpertIconUpdater.class);
-				modPacks.add(FeatureFlags.class);
-				break;
-			case Constants.TELECOM_SERVER_PACKAGE:
-				modPacks.add(CallVibrator.class);
-				break;
-			case Constants.SETTINGS_PACKAGE:
-				if(Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU)
-					modPacks.add(AppCloneEnabler.class);
-				break;
-			case Constants.DIALER_PACKAGE:
-				modPacks.add(RecordingMessage.class);
-				break;
-		}
 
 		//All Apps
-		modPacks.add(OverScrollDisabler.class);
-
 		return modPacks;
 	}
 }

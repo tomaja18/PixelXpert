@@ -55,6 +55,7 @@ public class XPLauncher implements ServiceConnection {
 	}
 
 	public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
+		log(lpparam.packageName);
 		try
 		{
 			isChildProcess = lpparam.processName.contains(":");
@@ -106,8 +107,8 @@ public class XPLauncher implements ServiceConnection {
 						if (mContext == null || lpparam.packageName.equals(Constants.TELECOM_SERVER_PACKAGE)) { //telecom service launches as a secondary process in framework, but has its own package name. context is not null when it loads
 							mContext = (Context) param.args[2];
 
-							ResourceManager.modRes = mContext.createPackageContext(APPLICATION_ID, CONTEXT_IGNORE_SECURITY)
-									.getResources();
+//							ResourceManager.modRes = mContext.createPackageContext(APPLICATION_ID, CONTEXT_IGNORE_SECURITY)
+//									.getResources();
 
 							XPrefs.init(mContext);
 

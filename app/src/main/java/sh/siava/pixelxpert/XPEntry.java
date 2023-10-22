@@ -1,5 +1,7 @@
 package sh.siava.pixelxpert;
 
+import static de.robv.android.xposed.XposedBridge.log;
+
 import de.robv.android.xposed.IXposedHookInitPackageResources;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
@@ -13,12 +15,14 @@ public class XPEntry implements IXposedHookZygoteInit, IXposedHookInitPackageRes
 	XPLauncher XPLauncher = new XPLauncher();
 	@Override
 	public void handleInitPackageResources(XC_InitPackageResources.InitPackageResourcesParam initPackageResourcesParam) throws Throwable {
+		log(initPackageResourcesParam.packageName);
 		ResourceManager.handleInitPackageResources(initPackageResourcesParam);
 	}
 
 	@Override
 	public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) throws Throwable
 	{
+		log(loadPackageParam.packageName);
 		XPLauncher.handleLoadPackage(loadPackageParam);
 	}
 

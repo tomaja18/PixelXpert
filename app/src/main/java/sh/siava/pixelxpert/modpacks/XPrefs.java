@@ -20,9 +20,9 @@ public class XPrefs {
 	public static void init(Context context) {
 		packageName = context.getPackageName();
 
-		Xprefs = new RemotePreferences(context, BuildConfig.APPLICATION_ID, BuildConfig.APPLICATION_ID + "_preferences", true);
+//		Xprefs = new RemotePreferences(context, BuildConfig.APPLICATION_ID, BuildConfig.APPLICATION_ID + "_preferences", true);
 
-		Xprefs.registerOnSharedPreferenceChangeListener(listener);
+//		Xprefs.registerOnSharedPreferenceChangeListener(listener);
 	}
 
 
