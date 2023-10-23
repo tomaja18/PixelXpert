@@ -818,7 +818,7 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 					.setOnPreferenceClickListener(preference -> {
 						try {
 							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("https://github.com/siavash79/AOSPMods"));
+							intent.setData(Uri.parse("https://github.com/siavash79/PixelXpert"));
 							startActivity(intent);
 						} catch (Exception ignored) {
 							Toast.makeText(getContext(), getString(R.string.browser_not_found), Toast.LENGTH_SHORT).show();
@@ -830,7 +830,7 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 					.setOnPreferenceClickListener(preference -> {
 						try {
 							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("https://t.me/AOSPMods_Support"));
+							intent.setData(Uri.parse("https://t.me/PixelXpert_Discussion"));
 							startActivity(intent);
 						} catch (Exception ignored) {
 							Toast.makeText(getContext(), getString(R.string.browser_not_found), Toast.LENGTH_SHORT).show();
@@ -842,7 +842,7 @@ public class SettingsActivity extends AppCompatActivity implements PreferenceFra
 					.setOnPreferenceClickListener(preference -> {
 						try {
 							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("https://github.com/siavash79/AOSPMods/wiki/AOSPMods-Wiki"));
+							intent.setData(Uri.parse("https://github.com/siavash79/PixelXpert/wiki/PixelXpert-Wiki"));
 							startActivity(intent);
 						} catch (Exception ignored) {
 							Toast.makeText(getContext(), getString(R.string.browser_not_found), Toast.LENGTH_SHORT).show();
